@@ -4,7 +4,11 @@
 
 A procedural stadium, twenty-two players and six authored sequences form an interactive replay room. Explore the shape of a move, change the camera, follow a player and keep an observation with the exact perspective that inspired it.
 
-The public demo is being verified. Its working URL and release evidence will be added after the browser suite and deployment complete.
+[Open the live demo](https://rafayelkaramyan.github.io/rafarena/) · [Passing verification and deployment](https://github.com/RafayelKaramyan/rafarena/actions/runs/40019227628)
+
+![Rafarena with the procedural Three.js stadium](docs/screenshots/explorer-3d.webp)
+
+Actual application capture from the dedicated software-WebGL browser project. The verified release passed 32 unit/integration tests and 41 browser cases across Chromium, Firefox, Pixel 7 emulation and the separate Three.js project. [Release evidence](docs/validation.md) records the exact commit, live checks and limits.
 
 ## The experience
 
