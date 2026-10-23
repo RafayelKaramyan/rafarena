@@ -28,7 +28,7 @@ test('navigates the three pages and keeps the canonical home working after reloa
   await page.getByRole('link', { name: 'Match explorer', exact: true }).click();
   await page.reload();
   await expect(page.getByRole('region', { name: 'Interactive match pitch' })).toBeVisible();
-  await expect(page.getByRole('heading', { level: 1 })).toBeFocused();
+  await expect(page.getByRole('main')).toBeFocused();
 });
 test('plays, pauses, seeks, changes speed and stops at the end without looping', async ({
   page,

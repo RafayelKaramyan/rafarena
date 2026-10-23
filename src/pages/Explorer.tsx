@@ -228,6 +228,7 @@ export default function Explorer({ view, setView, replay, save, notify }: Props)
             </button>
             <button
               className="button save-button"
+              aria-label="Save view"
               onClick={() => {
                 replay.pause();
                 setSaveView(capture());

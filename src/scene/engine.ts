@@ -538,6 +538,7 @@ export class StadiumEngine {
       height = this.host.clientHeight;
     if (!width || !height) return;
     this.camera.aspect = width / height;
+    this.camera.zoom = Math.min(1, this.camera.aspect / 1.3);
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
     this.requestRender();

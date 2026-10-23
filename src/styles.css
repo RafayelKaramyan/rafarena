@@ -111,6 +111,13 @@ em {
 .skip-link:focus {
   transform: translateY(0);
 }
+.skip-link:not(:focus) {
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+}
 .site-header {
   height: 100px;
   max-width: 1600px;
@@ -636,7 +643,7 @@ em {
 }
 .preset-num {
   font: 8px var(--mono);
-  color: #88a58d;
+  color: #b4cbb8;
 }
 .insight-panel {
   background: linear-gradient(155deg, #1d3230, #142927 65%);
