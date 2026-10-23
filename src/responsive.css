@@ -1,0 +1,1204 @@
+@media (min-width: 1500px) {
+  .stage {
+    height: 540px;
+  }
+  .insight-panel {
+    padding: 26px;
+  }
+  .insight-panel h2 {
+    font-size: 46px;
+  }
+  .moment-description {
+    font-size: 12px;
+  }
+  .coach-note p {
+    font-size: 11px;
+  }
+  .arena-grid {
+    grid-template-columns: minmax(0, 1fr) 330px;
+  }
+  .camera-presets button {
+    font-size: 11px;
+  }
+  .film-caption {
+    font-size: 11px;
+  }
+  .film-caption > span:last-child {
+    font-size: 8px;
+  }
+}
+@media (max-width: 1190px) {
+  .main-container {
+    padding: 0 3%;
+  }
+  .site-header {
+    padding: 0 3%;
+    height: 86px;
+  }
+  .site-header nav {
+    gap: 24px;
+  }
+  .site-header .header-signoff {
+    gap: 15px;
+  }
+  .arena-grid {
+    grid-template-columns: minmax(0, 1fr) 255px;
+  }
+  .insight-panel {
+    padding: 19px;
+  }
+  .insight-panel h2 {
+    font-size: 34px;
+  }
+  .moment-description {
+    font-size: 10px;
+  }
+  .moment-stats {
+    gap: 8px;
+  }
+  .moment-stats span {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+  .stage {
+    height: 465px;
+  }
+  .camera-bar {
+    gap: 8px;
+    padding: 0 12px;
+  }
+  .camera-caption {
+    font-size: 8px;
+    gap: 4px;
+  }
+  .camera-presets button {
+    font-size: 8px;
+    gap: 4px;
+    padding: 8px 6px;
+  }
+  .preset-num {
+    font-size: 8px;
+  }
+  .moment-filmstrip {
+    grid-template-columns: repeat(6, minmax(145px, 1fr));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 3px 3px 12px;
+    margin: -3px -3px 0;
+  }
+  .film-card {
+    scroll-snap-align: start;
+  }
+  .layer-controls {
+    gap: 6px;
+  }
+  .control-title {
+    font-size: 8px;
+    margin-right: 4px;
+  }
+  .layer-toggle {
+    font-size: 8px;
+    padding: 8px;
+  }
+  .player-select {
+    gap: 7px;
+  }
+  .player-select label {
+    font-size: 8px;
+  }
+  .select-wrap select {
+    min-width: 160px;
+    max-width: 205px;
+    font-size: 8px;
+  }
+  .stage-hint {
+    font-size: 8px;
+  }
+  .library-card-body {
+    padding: 16px;
+  }
+  .library-card h2 {
+    font-size: 32px;
+  }
+  .library-card-meta {
+    font-size: 8px;
+  }
+  .saved-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 920px) {
+  .header-signoff {
+    display: none;
+  }
+  .explorer-heading {
+    padding-bottom: 28px;
+  }
+  .explorer-heading h1 {
+    font-size: 54px;
+  }
+  .heading-aside p {
+    font-size: 10px;
+  }
+  .fixture-tag .fictional {
+    display: none;
+  }
+  .arena-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .stage {
+    height: 470px;
+  }
+  .insight-panel {
+    border-left: 0;
+    border-top: 1px solid #34483e;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+    padding: 22px;
+  }
+  .insight-kicker {
+    grid-column: 1/-1;
+    padding-bottom: 16px;
+  }
+  .insight-panel h2 {
+    grid-column: 1;
+    font-size: 36px;
+    margin: 9px 0 10px;
+  }
+  .moment-category {
+    grid-column: 1;
+  }
+  .moment-description {
+    grid-column: 1;
+    grid-row: 4 / span 3;
+    max-width: none;
+    font-size: 11px;
+  }
+  .moment-stats {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    padding: 0 0 16px;
+    align-self: start;
+  }
+  .moment-stats span {
+    font-size: 8px;
+    letter-spacing: 0.4px;
+  }
+  .coach-note {
+    grid-column: 2;
+    grid-row: 4 / span 2;
+    padding-top: 0;
+  }
+  .coach-note p {
+    font-size: 10px;
+    margin-top: 7px;
+  }
+  .focus-player {
+    grid-column: 2;
+    margin-top: 10px;
+    grid-row: 6;
+  }
+  .insight-bottom {
+    display: none;
+  }
+  .camera-caption {
+    font-size: 8px;
+    gap: 7px;
+  }
+  .camera-bar {
+    padding: 0 20px;
+    gap: 20px;
+  }
+  .camera-presets button {
+    font-size: 10px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .preset-num {
+    font-size: 8px;
+  }
+  .control-title {
+    font-size: 8px;
+  }
+  .layer-toggle {
+    font-size: 9px;
+    padding: 8px 10px;
+  }
+  .explore-tools {
+    flex-wrap: wrap;
+    gap: 19px;
+  }
+  .player-select {
+    margin-left: auto;
+  }
+  .player-select label {
+    font-size: 8px;
+  }
+  .select-wrap select {
+    font-size: 9px;
+    max-width: 245px;
+    min-width: 190px;
+  }
+  .stage-hint {
+    font-size: 8px;
+  }
+  .stage-top {
+    top: 20px;
+  }
+  .stage-coordinate {
+    font-size: 8px;
+  }
+  .library-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .library-filter {
+    gap: 18px;
+  }
+  .filter-tabs {
+    gap: 1px;
+  }
+  .filter-tabs button {
+    font-size: 9px;
+    padding: 9px 10px;
+  }
+  .search-field {
+    min-width: 180px;
+    max-width: 220px;
+  }
+  .page-heading > p {
+    font-size: 11px;
+    max-width: 220px;
+  }
+  .library-card-meta {
+    font-size: 8px;
+  }
+  .library-card h2 {
+    font-size: 36px;
+  }
+  .site-footer {
+    flex-wrap: wrap;
+  }
+  .footer-year {
+    margin-left: auto;
+  }
+  .focus-mode {
+    inset: 8px;
+  }
+  .focus-mode .insight-panel {
+    display: none;
+  }
+  .focus-mode .stage {
+    height: calc(100dvh - 295px);
+    min-height: 250px;
+  }
+}
+@media (max-width: 650px) {
+  .site-header {
+    height: auto;
+    min-height: 113px;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 20px 5% 0;
+  }
+  .brand {
+    font-size: 25px;
+    gap: 8px;
+  }
+  .brand > svg {
+    width: 30px;
+    height: 30px;
+  }
+  .site-header nav {
+    width: 100%;
+    height: 43px;
+    margin-top: 15px;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 11px;
+  }
+  .nav-count {
+    font-size: 8px;
+    padding: 1px 3px;
+  }
+  .main-container {
+    padding: 0 5%;
+  }
+  .intro-row {
+    padding-top: 25px;
+  }
+  .intro-row > .eyebrow {
+    font-size: 8px;
+    gap: 8px;
+  }
+  .fixture-tag {
+    font-size: 8px;
+    gap: 7px;
+  }
+  .fixture-tag > span:first-child {
+    display: none;
+  }
+  .explorer-heading {
+    padding: 23px 0 27px;
+  }
+  .explorer-heading h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+  .explorer-heading h1 em {
+    font-size: 1.05em;
+    letter-spacing: -1.5px;
+  }
+  .heading-aside {
+    display: none;
+  }
+  .match-bar {
+    padding: 11px 15px;
+    min-height: 62px;
+    gap: 10px;
+  }
+  .match-teams {
+    gap: 7px;
+  }
+  .team-badge {
+    width: 24px;
+    height: 28px;
+  }
+  .team-name {
+    font-size: 10px;
+  }
+  .match-score {
+    font-size: 20px;
+    gap: 8px;
+    margin: 0 3px;
+  }
+  .match-period {
+    display: none;
+  }
+  .match-tools {
+    gap: 8px;
+  }
+  .match-clock {
+    font-size: 12px;
+    padding-right: 9px;
+    min-width: 58px;
+  }
+  .match-tools > .icon-button {
+    width: 25px;
+    height: 27px;
+  }
+  .save-button {
+    padding: 7px;
+    gap: 6px;
+    font-size: 8px;
+    min-height: 30px;
+  }
+  .save-button > svg:last-child {
+    display: none;
+  }
+  .stage {
+    height: 355px;
+  }
+  .stage-top {
+    left: 15px;
+    right: 15px;
+    top: 16px;
+  }
+  .stage-live {
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+  .stage-coordinate {
+    font-size: 8px;
+    letter-spacing: 0.4px;
+  }
+  .pitch-key {
+    left: 15px;
+    top: 39px;
+    font-size: 8px;
+    gap: 12px;
+  }
+  .renderer-choice {
+    left: 13px;
+    bottom: 16px;
+  }
+  .renderer-choice button {
+    font-size: 8px;
+    padding: 4px 6px;
+  }
+  .stage-actions {
+    right: 12px;
+    bottom: 16px;
+  }
+  .stage-actions .icon-button {
+    width: 27px;
+    height: 27px;
+  }
+  .stage-hint {
+    left: 125px;
+    right: 81px;
+    font-size: 8px;
+    line-height: 1.5;
+    bottom: 23px;
+    gap: 3px;
+  }
+  .stage-hint button {
+    font-size: 8px;
+    white-space: nowrap;
+  }
+  .stage-hint > svg {
+    display: none;
+  }
+  .camera-bar {
+    padding: 12px 13px;
+    gap: 10px;
+    min-height: 0;
+  }
+  .camera-caption {
+    display: none;
+  }
+  .camera-presets {
+    gap: 4px;
+  }
+  .camera-presets button {
+    font-size: 8px;
+    gap: 4px;
+    padding: 8px 7px;
+    justify-content: center;
+    flex: 1;
+  }
+  .preset-num {
+    font-size: 8px;
+  }
+  .insight-panel {
+    padding: 21px 19px;
+    gap: 0 20px;
+  }
+  .insight-kicker {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+    padding-bottom: 17px;
+  }
+  .moment-category {
+    font-size: 8px;
+  }
+  .insight-panel h2 {
+    font-size: 32px;
+    margin: 8px 0 11px;
+  }
+  .moment-description {
+    font-size: 9px;
+    line-height: 1.8;
+  }
+  .moment-stats {
+    gap: 5px;
+    padding-bottom: 13px;
+  }
+  .moment-stats strong {
+    font-size: 24px;
+  }
+  .moment-stats span {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+  .moment-stats small {
+    font-size: 8px;
+  }
+  .coach-note {
+    gap: 6px;
+  }
+  .coach-note > svg {
+    width: 12px;
+    height: 12px;
+  }
+  .coach-note span {
+    font-size: 8px;
+    letter-spacing: 0.4px;
+  }
+  .coach-note p {
+    font-size: 8px;
+    line-height: 1.7;
+  }
+  .focus-player {
+    font-size: 8px;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .focus-player > svg {
+    width: 12px;
+    height: 12px;
+  }
+  .transport {
+    padding: 15px 16px 11px;
+  }
+  .transport-top {
+    gap: 10px;
+  }
+  .transport-play {
+    gap: 9px;
+  }
+  .transport-play .icon-button {
+    width: 22px;
+  }
+  .play-button {
+    width: 34px;
+    height: 34px;
+  }
+  .play-button svg {
+    width: 16px;
+    height: 16px;
+  }
+  .transport-time {
+    font-size: 10px;
+  }
+  .transport-time > span {
+    font-size: 8px;
+  }
+  .transport-options {
+    gap: 8px;
+  }
+  .speed-options {
+    gap: 1px;
+    padding-right: 6px;
+  }
+  .speed-options button {
+    font-size: 8px;
+    min-width: 24px;
+    padding: 5px;
+  }
+  .transport-options > .icon-button {
+    width: 21px;
+  }
+  .keyboard-help {
+    font-size: 8px;
+    width: 17px;
+    height: 17px;
+  }
+  .frame-caption {
+    display: none;
+  }
+  .time-track {
+    padding-top: 16px;
+  }
+  .time-ticks {
+    font-size: 8px;
+    margin-bottom: 8px;
+  }
+  .timeline-bottom {
+    margin-top: 8px;
+  }
+  .timeline-bottom > span {
+    font-size: 8px;
+    letter-spacing: 0.1px;
+  }
+  .timeline-bottom > button {
+    font-size: 8px;
+    gap: 5px;
+  }
+  .explore-tools {
+    margin-top: 20px;
+    gap: 16px;
+    padding-bottom: 20px;
+  }
+  .layer-controls {
+    flex-wrap: wrap;
+    gap: 7px;
+    width: 100%;
+  }
+  .control-title {
+    width: 100%;
+    font-size: 8px;
+    margin-bottom: 3px;
+  }
+  .layer-toggle {
+    font-size: 9px;
+    padding: 8px 11px;
+    flex: 1;
+    justify-content: center;
+  }
+  .player-select {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .player-select label {
+    font-size: 8px;
+  }
+  .select-wrap {
+    flex: 1;
+    max-width: 245px;
+  }
+  .select-wrap select {
+    min-width: 0;
+    max-width: none;
+    font-size: 9px;
+    padding: 10px 27px 10px 10px;
+  }
+  .player-focus-bar {
+    padding: 12px 13px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .player-position {
+    font-size: 8px;
+    margin-left: auto;
+  }
+  .player-focus-bar strong {
+    font-size: 11px;
+  }
+  .player-focus-bar > div:nth-child(2) > span {
+    font-size: 8px;
+  }
+  .player-focus-bar > .icon-button {
+    margin-left: 0;
+    width: 23px;
+  }
+  .shirt-number {
+    width: 29px;
+    height: 33px;
+    font-size: 13px;
+  }
+  .moment-section {
+    padding-top: 36px;
+  }
+  .section-heading {
+    margin-bottom: 20px;
+    gap: 14px;
+    align-items: center;
+  }
+  .section-heading .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+  .section-heading h2 {
+    font-size: 24px;
+    letter-spacing: -0.6px;
+  }
+  .section-heading > .text-button {
+    font-size: 8px;
+    gap: 5px;
+    padding-bottom: 0;
+    max-width: 85px;
+  }
+  .section-heading > .text-button > svg {
+    width: 14px;
+    height: 14px;
+  }
+  .moment-filmstrip {
+    grid-template-columns: repeat(6, 190px);
+    gap: 13px;
+    padding-bottom: 11px;
+  }
+  .film-caption {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .film-caption > span:last-child {
+    font-size: 8px;
+  }
+  .film-index,
+  .film-time {
+    font-size: 8px;
+  }
+  .film-arrow {
+    opacity: 1;
+    transform: none;
+  }
+  .closing-note {
+    padding: 29px 0 28px;
+    margin-top: 26px;
+    gap: 17px;
+    flex-wrap: wrap;
+  }
+  .closing-note > svg {
+    width: 24px;
+    height: 24px;
+  }
+  .closing-note > p {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  .closing-note > div {
+    width: 100%;
+    text-align: left;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 8px;
+    margin-left: 42px;
+    margin-top: 2px;
+    gap: 15px;
+  }
+  .site-footer {
+    padding: 24px 5%;
+    gap: 21px;
+  }
+  .footer-brand > span {
+    font-size: 8px;
+    letter-spacing: 0.4px;
+  }
+  .footer-brand > svg {
+    width: 25px;
+    height: 25px;
+  }
+  .site-footer > p {
+    font-size: 8px;
+    width: 100%;
+    order: 3;
+  }
+  .site-footer > p > span {
+    font-size: 8px;
+    margin-top: 3px;
+  }
+  .footer-year {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+  .toast {
+    bottom: 14px;
+    font-size: 10px;
+    width: 90vw;
+    max-width: none;
+    gap: 8px;
+    padding: 9px 7px 9px 13px;
+  }
+  .toast > svg {
+    width: 15px;
+    height: 15px;
+  }
+  .toast .icon-button {
+    width: 24px;
+    height: 28px;
+    margin-left: auto;
+  }
+  .storage-alert {
+    padding: 13px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .storage-alert strong {
+    font-size: 10px;
+  }
+  .storage-alert p {
+    font-size: 9px;
+  }
+  .storage-alert > .text-button {
+    font-size: 9px;
+  }
+  .page-heading {
+    padding: 34px 0 30px;
+    display: block;
+  }
+  .page-heading h1 {
+    font-size: 44px;
+    letter-spacing: -1.6px;
+    margin-top: 15px;
+  }
+  .page-heading > .eyebrow,
+  .page-heading > div > .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.7px;
+  }
+  .page-heading > p {
+    font-size: 11px;
+    margin-top: 22px;
+    max-width: none;
+  }
+  .library-filter {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 17px 0;
+  }
+  .filter-tabs {
+    width: 100%;
+    justify-content: space-between;
+    gap: 3px;
+  }
+  .filter-tabs button {
+    font-size: 9px;
+    padding: 8px 9px;
+    gap: 7px;
+  }
+  .filter-tabs button > span {
+    font-size: 8px;
+    padding-left: 6px;
+  }
+  .search-field {
+    width: 100%;
+    max-width: none;
+    font-size: 11px;
+    padding: 12px;
+  }
+  .search-field input {
+    font-size: 11px;
+  }
+  .library-count {
+    padding: 20px 0;
+    gap: 12px;
+    font-size: 8px;
+  }
+  .library-count > span:last-child {
+    font-size: 8px;
+    letter-spacing: 0.2px;
+    gap: 5px;
+  }
+  .library-count > span:last-child > svg {
+    height: 11px;
+    width: 11px;
+  }
+  .library-grid {
+    gap: 23px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .library-card-body {
+    padding: 21px;
+  }
+  .library-card-meta {
+    font-size: 8px;
+  }
+  .library-card h2 {
+    font-size: 38px;
+    margin-top: 13px;
+  }
+  .library-card-body > p {
+    font-size: 12px;
+  }
+  .library-card-bottom {
+    margin-top: 21px;
+    padding-top: 16px;
+  }
+  .library-card-bottom > span {
+    font-size: 8px;
+  }
+  .library-card-bottom > strong {
+    font-size: 10px;
+  }
+  .library-footnote {
+    margin-top: 29px;
+    padding: 21px 0 29px;
+    display: block;
+  }
+  .library-footnote > span {
+    font-size: 8px;
+    letter-spacing: 0.4px;
+  }
+  .library-footnote > p {
+    font-size: 10px;
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+  .saved-register {
+    padding: 17px 0;
+    gap: 14px;
+  }
+  .saved-register > span {
+    font-size: 8px;
+    letter-spacing: 0.4px;
+    gap: 8px;
+  }
+  .saved-register > .text-button {
+    font-size: 8px;
+    gap: 7px;
+  }
+  .saved-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    margin-top: 23px;
+  }
+  .saved-body {
+    padding: 21px;
+  }
+  .saved-body h2 {
+    font-size: 24px;
+  }
+  .saved-body > .eyebrow {
+    font-size: 8px;
+  }
+  .saved-body > p {
+    font-size: 11px;
+  }
+  .saved-card-tools > .text-button {
+    font-size: 10px;
+  }
+  .saved-storage-note {
+    font-size: 8px;
+    line-height: 1.9;
+    margin-top: 28px;
+    padding: 22px 0 28px;
+  }
+  .empty-state {
+    padding: 65px 4px 74px;
+  }
+  .empty-state h1,
+  .empty-state h2 {
+    font-size: 37px;
+  }
+  .empty-state p {
+    font-size: 12px;
+  }
+  .empty-state .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.7px;
+  }
+  .dialog {
+    padding: 23px 21px;
+    border-radius: 10px;
+  }
+  .dialog-title h2 {
+    font-size: 34px;
+  }
+  .dialog-title .eyebrow {
+    font-size: 8px;
+  }
+  .dialog-intro {
+    font-size: 11px;
+    margin-top: 16px;
+  }
+  .field {
+    font-size: 11px;
+  }
+  .dialog-buttons {
+    flex-direction: column;
+  }
+  .dialog-buttons .button {
+    font-size: 11px;
+    min-height: 43px;
+  }
+  .focus-mode {
+    inset: 5px;
+  }
+  .focus-mode .match-bar {
+    padding-top: 54px;
+    padding-left: 13px;
+  }
+  .focus-mode .stage {
+    height: calc(100dvh - 350px);
+    min-height: 230px;
+  }
+  .focus-close {
+    left: 12px;
+    top: 12px;
+    font-size: 9px;
+  }
+}
+@media (max-width: 430px) {
+  .team-name {
+    display: none;
+  }
+  .match-teams {
+    gap: 8px;
+  }
+  .match-score {
+    margin: 0 4px;
+    gap: 10px;
+  }
+  .match-tools {
+    gap: 7px;
+  }
+  .save-button > span {
+    display: none;
+  }
+  .save-button {
+    width: 30px;
+    min-height: 30px;
+  }
+  .match-bar {
+    padding: 12px 13px;
+  }
+  .match-clock {
+    font-size: 13px;
+    min-width: 58px;
+  }
+  .stage {
+    height: 300px;
+  }
+  .stage-coordinate {
+    display: none;
+  }
+  .stage-hint {
+    bottom: 56px;
+    left: 15px;
+    right: 15px;
+    font-size: 8px;
+  }
+  .stage-hint button {
+    font-size: 8px;
+  }
+  .stage-top {
+    left: 15px;
+  }
+  .camera-presets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+  .camera-presets button {
+    font-size: 9px;
+    padding: 8px 9px;
+    justify-content: start;
+  }
+  .preset-num {
+    font-size: 8px;
+  }
+  .camera-bar {
+    padding: 11px 13px;
+  }
+  .insight-panel {
+    display: flex;
+    padding: 22px;
+  }
+  .insight-kicker {
+    padding-bottom: 17px;
+    font-size: 8px;
+  }
+  .moment-category {
+    font-size: 8px;
+  }
+  .insight-panel h2 {
+    font-size: 38px;
+    margin: 9px 0 12px;
+  }
+  .moment-description {
+    font-size: 11px;
+    line-height: 1.8;
+    max-width: none;
+  }
+  .moment-stats {
+    padding: 20px 0 17px;
+    gap: 13px;
+    width: 100%;
+  }
+  .moment-stats strong {
+    font-size: 28px;
+  }
+  .moment-stats small {
+    font-size: 10px;
+  }
+  .moment-stats span {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+  .coach-note {
+    padding-top: 20px;
+    gap: 10px;
+  }
+  .coach-note span {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+  .coach-note p {
+    font-size: 10px;
+    line-height: 1.8;
+    margin-top: 8px;
+  }
+  .coach-note > svg {
+    width: 15px;
+    height: 15px;
+  }
+  .focus-player {
+    font-size: 10px;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .focus-player > svg {
+    width: 15px;
+    height: 15px;
+  }
+  .transport {
+    padding: 14px 13px 11px;
+  }
+  .transport-play {
+    gap: 6px;
+  }
+  .transport-time {
+    font-size: 9px;
+  }
+  .transport-time > span {
+    font-size: 8px;
+  }
+  .transport-options {
+    gap: 5px;
+  }
+  .speed-options {
+    padding-right: 4px;
+  }
+  .speed-options button {
+    font-size: 8px;
+    min-width: 22px;
+    padding: 4px;
+  }
+  .keyboard-help {
+    width: 16px;
+    height: 16px;
+  }
+  .transport-options > .icon-button {
+    width: 20px;
+    height: 22px;
+  }
+  .transport-top {
+    gap: 7px;
+  }
+  .layer-toggle {
+    font-size: 8px;
+    padding: 8px 7px;
+    gap: 4px;
+  }
+  .layer-toggle > svg {
+    width: 11px;
+    height: 11px;
+  }
+  .player-select {
+    gap: 10px;
+  }
+  .player-select label {
+    font-size: 8px;
+  }
+  .select-wrap {
+    max-width: 205px;
+  }
+  .select-wrap select {
+    font-size: 8px;
+  }
+  .player-position {
+    display: none;
+  }
+  .player-focus-bar > .icon-button {
+    margin-left: auto;
+  }
+  .film-card {
+    width: 190px;
+  }
+  .fixture-tag {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+  .explorer-heading h1 {
+    font-size: 44px;
+  }
+  .explorer-heading h1 em {
+    font-size: 1.02em;
+  }
+  .filter-tabs button {
+    font-size: 8px;
+    padding: 8px 7px;
+    gap: 5px;
+  }
+  .filter-tabs button > span {
+    font-size: 8px;
+    padding-left: 5px;
+  }
+  .library-card-meta {
+    font-size: 8px;
+  }
+  .library-card-bottom > span {
+    font-size: 8px;
+  }
+  .library-card-bottom > strong {
+    font-size: 8px;
+  }
+  .library-card h2 {
+    font-size: 36px;
+  }
+  .library-card-body > p {
+    font-size: 11px;
+  }
+}
