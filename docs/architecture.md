@@ -20,9 +20,19 @@
 
 ## Interface
 
-Hash routing keeps direct GitHub Pages links functional. The three screens are the replay explorer, searchable moment library and saved-view collection. Native dialogs contain focus and restore the opening control. Focus view contains keyboard navigation and temporarily makes surrounding content inert. The player menu provides a keyboard alternative to raycasting and SVG pointer selection.
+Hash routing keeps direct GitHub Pages links functional. The editorial homepage, journal index, four complete articles, playbook index, three guided studies and project perspective surround the replay explorer, searchable moment library and saved-view collection. The canonical replay path is `/explorer`; earlier `/?moment=...` snapshots continue to open the explorer. Stored records retain their schema and identity.
+
+`src/content/editorial.ts` owns typed story and guide content. A guide's `guideView` produces a validated replay state for each checkpoint. Both its static tactical illustration and its link to the live replay use that same state. Article reading-time estimates derive from paragraph word counts. The journal filters locally by category and text; the header search indexes stories, guides and authored replay descriptions together.
+
+`src/ui/SiteChrome.tsx` provides common navigation, mobile navigation, search and the footer. `src/world.css` owns the light editorial palette, photographic layouts and large display type. The replay room retains its night palette. Native dialogs contain focus and restore the opening control. Focus view contains keyboard navigation and temporarily makes surrounding content inert. The player menu provides a keyboard alternative to raycasting and SVG pointer selection.
 
 The replay starts paused. CSS and camera transitions respect reduced motion. A selected player, transport controls and layer choices remain available in both renderers. PNG export captures only the pitch image, not private notes or application chrome.
+
+## Media and loading
+
+Six optimized, self-hosted WebP photographs total 1,253,008 bytes; their sources and photographer credits are in `docs/photo-credits.md`. The hero loads eagerly with high fetch priority, while secondary editorial images use native lazy loading and explicit dimensions. These real editorial photographs are separate from the fictional replay data.
+
+`StadiumTeaser` waits until its section approaches the viewport before mounting `Stage`. Its camera controls use a local viewing state. Entering the replay room captures that state and the actual orbit pose. Its PNG action uses the same stage export API as the full explorer. It releases its replay subscriptions when unmounted. This is a loading strategy, not a measured Core Web Vitals claim.
 
 ## Deployment
 

@@ -1,27 +1,43 @@
 # Rafarena
 
-**A different perspective.** An original football replay explorer built with React, TypeScript and Three.js by **Rafayel Karamyan**.
+**Game on. Eyes open.** An original football journal, visual playbook and interactive 3D replay room, built with React, TypeScript and Three.js by **Rafayel Karamyan**.
 
-A procedural stadium, twenty-two players and six authored sequences form an interactive replay room. Explore the shape of a move, change the camera, follow a player and keep an observation with the exact perspective that inspired it.
+[Open Rafarena](https://rafayelkaramyan.github.io/rafarena/) · [Verification workflow](https://github.com/RafayelKaramyan/rafarena/actions/runs/40125142444)
 
-[Open the live demo](https://rafayelkaramyan.github.io/rafarena/) · [Passing verification and deployment](https://github.com/RafayelKaramyan/rafarena/actions/runs/40019227628)
+![Rafarena's image-led editorial homepage](docs/screenshots/editorial-home.webp)
 
-![Rafarena with the procedural Three.js stadium](docs/screenshots/explorer-3d.webp)
+A football experience for the curious: read an idea, follow it onto the pitch, change your perspective and keep what you notice. The campaign homepage leads into complete stories, guided studies and a working replay room.
 
-Actual application capture from the dedicated software-WebGL browser project. The verified release passed 32 unit/integration tests and 41 browser cases across Chromium, Firefox, Pixel 7 emulation and the separate Three.js project. [Release evidence](docs/validation.md) records the exact commit, live checks and limits.
+## Explore
 
-## The experience
+| Destination        | Working experience                                                                                                                           |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Discover           | A photographic campaign, asymmetric story features, a stadium preview, playbook studies and a football-culture essay.                        |
+| Journal            | Four complete articles, category and text filtering, reading-time estimates, in-page contents and links into the relevant scene.             |
+| Playbook           | Three visual studies with nine selectable checkpoints. Each diagram and its replay link use the same validated viewing state.                |
+| Replay room        | Six authored sequences, 22 players, four camera presets, orbit controls, deterministic replay, player focus and independent analysis layers. |
+| Saved perspectives | Browser-local create, edit and remove flows, exact timestamps, camera poses and private observations.                                        |
+| Search             | One keyboard-accessible dialog for stories, playbook guides and replay sequences.                                                            |
 
-- Three.js stadium, pitch markings, goals, players, ball, lights and 1,440 instanced seats, all built in code.
-- Six fictional football sequences: a through ball, diagonal switch, counter, short corner, high press and overlap.
-- Broadcast, top-down, touchline and free-orbit cameras. Orbit perspectives retain their actual position and target when saved or shared.
-- Deterministic replay, scrubbing, pause/play, three speeds, looping and keyboard controls. The match clock follows the selected sequence.
-- Ball paths, player runs, pitch thirds, pointer selection and a native player-focus menu.
-- Searchable and category-filtered moment library. Browser-local saved views with editable names and observations.
-- Shareable snapshot URLs containing camera, time, moment, layers and player focus. Private names and observations stay out of links.
-- PNG export of the current 3D canvas or the tactical illustration.
-- A complete SVG tactical view when WebGL is unavailable or its context is lost.
-- Self-hosted Outfit, Instrument Serif and DM Mono; native dialogs, reduced motion and compact layouts.
+## Built with a point of view
+
+The editorial site uses self-hosted Outfit, Instrument Serif and DM Mono, large display type, credited photography, a paper-and-ink palette and acid-yellow accents. The replay room retains its focused night palette. Mobile navigation, semantic dialogs, labeled controls and reduced motion are part of the same experience.
+
+Six optimized WebP photographs total 1,253,008 bytes and are bundled locally. The hero is prioritized; secondary images load lazily. The homepage stadium mounts as its section approaches the viewport, then loads the separate WebGL engine. [Photographer credits and sources](docs/photo-credits.md) accompany the images.
+
+The stadium, goals, pitch markings, players, ball, lights and 1,440 instanced seats are built in code. A complete SVG tactical view supports playback, player selection, layers, saving, sharing and PNG export when WebGL is unavailable or its context is lost.
+
+## Engineering
+
+`evaluateFrame(moment, timeMs)` evaluates absolute time and is shared by the 3D scene, tactical diagrams and saved-view thumbnails. The replay clock publishes every render frame separately from its throttled React subscribers.
+
+The engine retains scene objects, instances repeated seats, caps pixel density, renders on demand and disposes GPU resources on teardown. Camera transitions respect reduced motion. Playback pauses on route and visibility changes.
+
+IndexedDB writes one validated perspective per record. Concurrent inserts use independent keys and atomic transactions; BroadcastChannel refreshes other tabs. Write failures keep the form available to retry. Unreadable records are reported and retained.
+
+Snapshot URLs contain moment, time, camera, layers, selected player and the actual orbit pose where applicable. Private titles and observations stay out of links. The canonical replay route is `/explorer`; earlier `/?moment=...` links and existing saved records remain supported.
+
+Read the [architecture](docs/architecture.md), [code walkthrough](docs/walkthrough.md) and [validation record](docs/validation.md).
 
 ## Run locally
 
@@ -32,7 +48,7 @@ npm ci
 npm run dev
 ```
 
-The development server uses `/`. The production build uses `/rafarena/` for GitHub Pages.
+The development server uses `/`; the production build uses `/rafarena/` for GitHub Pages.
 
 ```sh
 npm run check
@@ -42,28 +58,18 @@ npx playwright install --with-deps chromium firefox
 npm run test:e2e
 ```
 
-Browser tests run against the production build. A dedicated Chromium project uses software WebGL to exercise the actual Three.js renderer; separate Chromium, Firefox and Pixel 7 projects cover the complete application and fallback path. Deployment follows successful verification.
+Browser tests use the production build. Chromium, Firefox and Pixel 7 emulation cover the application and editorial journeys. A separate software-WebGL project exercises the actual Three.js renderer and context-loss recovery. GitHub Pages deploys the tested artifact after successful checks.
 
-## Engineering
+The released editorial redesign passed strict TypeScript, formatting, the production build, **36 unit/integration tests and 62 browser cases**, with no retries or skips. The public review verified search-to-guide-to-replay navigation and a saved observation retained across the deployment. [Executed checks and limits](docs/validation.md).
 
-`evaluateFrame(moment, timeMs)` is a pure evaluator shared by the Three.js stage, SVG tactical view and saved-view thumbnails. It evaluates absolute time rather than advancing player positions by frame count. The replay transport publishes render frames separately from its throttled React subscribers.
+## Scope and credits
 
-The WebGL engine is loaded as a separate chunk. It retains scene objects between frames, instances repeated seats, caps pixel density, renders on demand and disposes GPU resources on teardown. Camera changes interpolate unless reduced motion is requested. Rendering and playback pause when the page is hidden.
+This is an independent portfolio project. The real editorial photographs depict independent people and places; their subjects and visible brands are not project partners. The teams, players, statistics and replay movements are fictional and authored. The scenes are illustrations for exploration, rather than live tracking, physical simulation or predictions.
 
-IndexedDB stores each saved perspective as a separate validated record. Concurrent saves from separate tabs use independent keys and atomic transactions; an observation update replaces only its own record. BroadcastChannel refreshes the other tabs. Write failures keep the form and its values available to retry. Unreadable records are reported and retained.
+Saved perspectives belong to the current browser and may be cleared or evicted. There is no account, cloud backup or live sports feed. Concurrent edits to the same existing note use last-committed-write behavior. PNG export is a still image; the tactical PNG is 1920 × 1200, and 3D dimensions follow the renderer.
 
-Read the [architecture](docs/architecture.md), [code walkthrough](docs/walkthrough.md) and [validation record](docs/validation.md).
+Software WebGL and mobile emulation do not establish physical-device GPU performance. No field Core Web Vitals, commercial outcomes or full accessibility certification are claimed.
 
-## Scope and limits
-
-This is an independent portfolio study with fictional teams, players, match statistics and authored movements. It is not live tracking, a physically accurate match simulation, a prediction model or a product affiliated with a club or employer. The forward-gain and action counts derive from the authored keyframes.
-
-Saved perspectives belong to the current browser; there is no account or cloud synchronization. Browser data can be cleared or evicted. Two tabs saving the same existing view use last-committed-write behavior. Snapshot links carry viewing state, not saved notes. PNG export is a still image, with dimensions determined by the renderer; the SVG export is 1920 × 1200. No video, wagering, payments or external sports feed is included.
-
-Software WebGL and mobile emulation do not establish physical-device GPU performance. See the validation record for executed checks and remaining limits.
-
-## Credits
-
-Application source, procedural geometry, graphics and fictional scenarios are authored for this project. React, Three.js, React Router, Zod, Lucide and Fontsource fonts retain their respective licenses. No external image service or runtime account is required.
+Application source, procedural geometry, graphics and editorial copy are created for this project. React, Three.js, React Router, Zod, Lucide and Fontsource fonts retain their respective licenses. Photography is credited separately under the Unsplash License.
 
 Copyright © 2026 Rafayel Karamyan.

@@ -1,5 +1,17 @@
 # Code walkthrough
 
+## Trace a story into a replay
+
+Start in `src/content/editorial.ts`. Each story has a route, credited photograph, readable sections and an authored moment to explore. `Journal` filters the collection; `Article` renders the full story and its in-page contents. The replay action calls `encodeView`, which creates the canonical `/explorer` snapshot URL without a private note.
+
+Follow a playbook checkpoint next. `guideView` combines the guide's moment, timestamp, camera, selected player and overlays into one state. The tactical diagram and “Open this frame in 3D” action consume that same state. This keeps a content page connected to working application behavior rather than a decorative diagram.
+
+## Explain the visual and loading decisions
+
+The main site uses an original image-led football editorial direction: a campaign opening, asymmetric photo stories, an interactive replay section, guided studies and complete articles. A common header, mobile menu, unified search and footer connect the pages. The replay room's separate night palette helps distinguish focused exploration from reading.
+
+Photography is bundled locally with credits. Secondary photos load lazily; the homepage stadium mounts near the viewport, then the renderer imports its Three.js engine. `world.css` contains the editorial layouts, responsive behavior and reduced-motion rules. The project has no runtime stock-photo API, analytics service or account dependency.
+
 ## Start with a football moment
 
 Open `src/domain/match.ts` and find `between-the-lines`. Its ball keys have absolute millisecond positions; its player runs specify a starting and finishing point. Change a key and both renderers and the thumbnails consume that same change. Explain why `evaluateFrame` accepts time directly: a seek, reload or slower device must not change the underlying sequence.
