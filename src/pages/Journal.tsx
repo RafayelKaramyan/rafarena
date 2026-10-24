@@ -133,7 +133,7 @@ export function Article() {
         <figcaption>{story.caption}</figcaption>
       </figure>
       <div className="article-layout">
-        <aside className="article-toc">
+        <nav className="article-toc" aria-label="Article contents">
           <span className="world-kicker">IN THIS STORY</span>
           <ol>
             {story.sections.map((section, index) => (
@@ -159,7 +159,7 @@ export function Article() {
           >
             See the sequence <ArrowUpRight size={17} />
           </Link>
-        </aside>
+        </nav>
         <div className="article-body">
           {story.sections.map((section, index) => (
             <section id={`section-${index}`} tabIndex={-1} key={section.title}>
