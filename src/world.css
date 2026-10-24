@@ -1030,6 +1030,8 @@ html {
 }
 .footer-bottom a {
   color: #f3f5eb;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .world-page-heading {
   padding: 70px 4.2% 55px;

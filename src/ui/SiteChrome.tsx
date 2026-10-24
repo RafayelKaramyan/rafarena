@@ -49,7 +49,7 @@ export function SiteHeader({ count }: { count: number }) {
   );
   return (
     <>
-      <div className="announcement">
+      <div className="announcement" role="region" aria-label="Our perspective">
         <span>FOR THE GAME. FOR THE CURIOUS.</span>
         <Link to="/about">
           A different perspective <ArrowUpRight size={12} />
@@ -101,13 +101,13 @@ export function SiteHeader({ count }: { count: number }) {
           <nav className="mobile-navigation" aria-label="Mobile navigation">
             {navigation.map(([label, to], i) => (
               <Link to={to!} key={to} onClick={() => setMenu(false)}>
-                <span>0{i + 1}</span>
+                <span aria-hidden="true">0{i + 1}</span>
                 {label}
                 <ArrowUpRight />
               </Link>
             ))}
             <Link to="/about" onClick={() => setMenu(false)}>
-              <span>06</span>Our perspective
+              <span aria-hidden="true">06</span>Our perspective
               <ArrowUpRight />
             </Link>
           </nav>
