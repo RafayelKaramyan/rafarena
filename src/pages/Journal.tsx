@@ -64,7 +64,7 @@ export function Journal() {
         </p>
         <div className="journal-grid">
           {filtered.map((story) => (
-            <StoryCard key={story.slug} story={story} large />
+            <StoryCard key={story.slug} story={story} large headingLevel={2} />
           ))}
         </div>
         {!filtered.length && (

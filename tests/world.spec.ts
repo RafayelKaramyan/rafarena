@@ -19,7 +19,7 @@ test('opens the editorial home with real campaign imagery and usable destination
       .locator('.campaign-photo')
       .evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth >= 1200),
   ).toBe(true);
-  await page.screenshot({ path: info.outputPath('homepage-desktop.png') });
+  await page.screenshot({ path: info.outputPath('homepage-desktop.png'), animations: 'disabled' });
   await page.getByRole('link', { name: 'Discover the story', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('The game between the moments.');
   await expect(page.locator('.article-body')).toContainText('Give one player your attention.');
@@ -123,7 +123,10 @@ test('keeps editorial pages within 320px and 768px and exposes an accessible mob
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
       width,
     );
-    await page.screenshot({ path: info.outputPath(`homepage-${width}.png`) });
+    await page.screenshot({
+      path: info.outputPath(`homepage-${width}.png`),
+      animations: 'disabled',
+    });
     await page.getByRole('button', { name: 'Open menu', exact: true }).click();
     await expect(page.getByRole('dialog', { name: 'Explore Rafarena', exact: true })).toBeVisible();
     await page.getByRole('link', { name: 'Stories', exact: true }).click();
@@ -158,16 +161,17 @@ test('passes representative editorial accessibility scans and honors reduced mot
   await page.locator('.home-lab').scrollIntoViewIfNeeded();
   await page.locator('.journal-section').scrollIntoViewIfNeeded();
   await page.locator('.belief-section').scrollIntoViewIfNeeded();
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
   await page.screenshot({ path: info.outputPath('homepage-full.png'), fullPage: true });
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  expect.soft((await new AxeBuilder({ page }).analyze()).violations, 'Homepage').toEqual([]);
   await page.goto('./#/journal');
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  expect.soft((await new AxeBuilder({ page }).analyze()).violations, 'Journal').toEqual([]);
   await page.goto('./#/playbook/find-the-pocket');
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  expect.soft((await new AxeBuilder({ page }).analyze()).violations, 'Guided study').toEqual([]);
   await page.goto('./#/journal/space-has-a-far-side');
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  expect.soft((await new AxeBuilder({ page }).analyze()).violations, 'Full article').toEqual([]);
   await page.goto('./#/about');
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  expect.soft((await new AxeBuilder({ page }).analyze()).violations, 'About').toEqual([]);
   await page.getByRole('button', { name: 'Search Rafarena', exact: true }).click();
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  expect.soft((await new AxeBuilder({ page }).analyze()).violations, 'Search dialog').toEqual([]);
 });

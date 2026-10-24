@@ -47,7 +47,16 @@ export function SectionTitle({
     </div>
   );
 }
-export function StoryCard({ story, large = false }: { story: Story; large?: boolean }) {
+export function StoryCard({
+  story,
+  large = false,
+  headingLevel = 3,
+}: {
+  story: Story;
+  large?: boolean;
+  headingLevel?: 2 | 3;
+}) {
+  const Heading = headingLevel === 2 ? 'h2' : 'h3';
   return (
     <Link to={`/journal/${story.slug}`} className={`story-card ${large ? 'large' : ''}`}>
       <div className="story-image">
@@ -61,7 +70,7 @@ export function StoryCard({ story, large = false }: { story: Story; large?: bool
         <span>{story.category}</span>
         <span>{readingMinutes(story)} MIN READ</span>
       </div>
-      <h3>{story.title}</h3>
+      <Heading>{story.title}</Heading>
       <p>{story.intro}</p>
       <span className="story-read">
         Read the story <ArrowUpRight size={16} />

@@ -822,7 +822,7 @@ html {
   color: #48543f;
   text-transform: uppercase;
 }
-.story-card h3 {
+.story-card :is(h2, h3) {
   font-size: 32px;
   font-weight: 550;
   line-height: 1.03;
@@ -1131,7 +1131,7 @@ html {
 .story-card.large .story-image {
   aspect-ratio: 1.45;
 }
-.story-card.large h3 {
+.story-card.large :is(h2, h3) {
   font-size: 42px;
   letter-spacing: -1.8px;
 }
@@ -1934,7 +1934,7 @@ html {
   .home-story-grid {
     gap: 20px;
   }
-  .story-card h3 {
+  .story-card :is(h2, h3) {
     font-size: 27px;
   }
   .story-card p {
@@ -2464,7 +2464,7 @@ html {
   .story-image {
     aspect-ratio: 1.15;
   }
-  .story-card h3 {
+  .story-card :is(h2, h3) {
     font-size: 35px;
     line-height: 1.04;
     letter-spacing: -1.3px;
@@ -2629,7 +2629,7 @@ html {
   .story-card.large .story-image {
     aspect-ratio: 1.2;
   }
-  .story-card.large h3 {
+  .story-card.large :is(h2, h3) {
     font-size: 36px;
   }
   .story-card.large p {
