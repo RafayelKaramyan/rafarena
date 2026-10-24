@@ -101,6 +101,7 @@ export default function Explorer({ view, setView, replay, save, notify }: Props)
     const surrounding = [
       document.querySelector<HTMLElement>('.site-header'),
       document.querySelector<HTMLElement>('.site-footer'),
+      document.querySelector<HTMLElement>('.announcement'),
       ...Array.from(area.parentElement?.children ?? []).filter(
         (node) => node !== area && node.tagName !== 'DIALOG',
       ),
@@ -568,7 +569,7 @@ export default function Explorer({ view, setView, replay, save, notify }: Props)
         </p>
         <div>
           <span>22 PLAYERS. EVERY PERSPECTIVE.</span>
-          <span>REACT / TYPESCRIPT / THREE.JS</span>
+          <span>OPEN A MOMENT. MAKE IT YOURS.</span>
         </div>
       </section>
       {saveView && (

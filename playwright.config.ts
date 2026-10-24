@@ -21,15 +21,19 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      testMatch: 'studio.spec.ts',
+      testMatch: ['studio.spec.ts', 'world.spec.ts'],
       use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 1000 } },
     },
     {
       name: 'firefox',
-      testMatch: 'studio.spec.ts',
+      testMatch: ['studio.spec.ts', 'world.spec.ts'],
       use: { ...devices['Desktop Firefox'], viewport: { width: 1440, height: 1000 } },
     },
-    { name: 'mobile', testMatch: 'studio.spec.ts', use: { ...devices['Pixel 7'] } },
+    {
+      name: 'mobile',
+      testMatch: ['studio.spec.ts', 'world.spec.ts'],
+      use: { ...devices['Pixel 7'] },
+    },
     {
       name: 'webgl',
       testMatch: 'webgl.spec.ts',

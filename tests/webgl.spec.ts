@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 
 test('renders the actual Three.js stadium and all four camera presets', async ({ page }, info) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('./');
+  await page.goto('./#/explorer');
   await expect(page.getByText('Three.js / 3D replay', { exact: false })).toBeVisible();
   const canvas = page.locator('.webgl-host canvas');
   await expect(canvas).toBeVisible();
@@ -41,7 +41,7 @@ test('renders the actual Three.js stadium and all four camera presets', async ({
   expect(image.byteLength).toBeGreaterThan(10000);
 });
 test('retains an editable view after a lost WebGL context', async ({ page }) => {
-  await page.goto('./');
+  await page.goto('./#/explorer');
   await expect(page.getByText('Three.js / 3D replay', { exact: false })).toBeVisible();
   await page.locator('.webgl-host canvas').evaluate((canvas: HTMLCanvasElement) => {
     const gl = canvas.getContext('webgl2');

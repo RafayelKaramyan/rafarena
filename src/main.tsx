@@ -7,6 +7,7 @@ import '@fontsource/dm-mono/400.css';
 import App from './App';
 import './styles.css';
 import './responsive.css';
+import './world.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

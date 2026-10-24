@@ -48,7 +48,7 @@ export function encodeView(view: ViewState): string {
   });
   if (valid.playerId) params.set('player', valid.playerId);
   if (valid.orbit && valid.camera === 'orbit') params.set('orbit', JSON.stringify(valid.orbit));
-  return `/?${params.toString()}`;
+  return `/explorer?${params.toString()}`;
 }
 export function decodeView(search: string): { view: ViewState; warning: string | null } {
   const params = new URLSearchParams(search);

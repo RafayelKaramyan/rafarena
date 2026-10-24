@@ -3,10 +3,17 @@ import AxeBuilder from '@axe-core/playwright';
 import { readFile } from 'node:fs/promises';
 
 async function open(page: Page) {
-  await page.goto('./');
+  await page.goto('./#/explorer');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'The game.A different perspective.',
   );
+}
+async function navigate(page: Page, name: string | RegExp) {
+  const options = { name, exact: typeof name === 'string' };
+  if (!(await page.getByRole('link', options).isVisible())) {
+    await page.getByRole('button', { name: 'Open menu', exact: true }).click();
+  }
+  await page.getByRole('link', options).click();
 }
 async function saveView(page: Page, title: string) {
   await page.getByRole('button', { name: 'Save view', exact: true }).click();
@@ -21,11 +28,11 @@ test('navigates the three pages and keeps the canonical home working after reloa
   page,
 }) => {
   await open(page);
-  await page.getByRole('link', { name: 'The moments', exact: true }).click();
+  await navigate(page, 'The moments');
   await expect(page.locator('.library-card')).toHaveCount(6);
-  await page.getByRole('link', { name: /^Saved views/ }).click();
+  await navigate(page, /^Saved views/);
   await expect(page.getByRole('heading', { name: 'See something worth saving?' })).toBeVisible();
-  await page.getByRole('link', { name: 'Match explorer', exact: true }).click();
+  await navigate(page, 'Match explorer');
   await page.reload();
   await expect(page.getByRole('region', { name: 'Interactive match pitch' })).toBeVisible();
   await expect(page.getByRole('main')).toBeFocused();
@@ -69,7 +76,7 @@ test('selects a player and preserves independent overlay and camera choices', as
 });
 test('filters the moment library and opens the selected replay', async ({ page }) => {
   await open(page);
-  await page.getByRole('link', { name: 'The moments', exact: true }).click();
+  await navigate(page, 'The moments');
   await page.getByRole('button', { name: 'Set piece', exact: true }).click();
   await expect(page.locator('.library-card')).toHaveCount(1);
   await page.getByLabel('Search moments', { exact: true }).fill('nothing matches');
@@ -89,7 +96,7 @@ test('saves, reloads, edits and removes a perspective without changing its time'
   await page.getByRole('slider', { name: 'Replay position' }).fill('4750');
   await page.getByRole('button', { name: '02 Top-down', exact: true }).click();
   await saveView(page, 'The pocket before the pass');
-  await page.getByRole('link', { name: /^Saved views/ }).click();
+  await navigate(page, /^Saved views/);
   await page.reload();
   await expect(
     page.getByRole('heading', { name: 'The pocket before the pass', exact: true }),
@@ -105,7 +112,7 @@ test('saves, reloads, edits and removes a perspective without changing its time'
     'aria-pressed',
     'true',
   );
-  await page.getByRole('link', { name: /^Saved views/ }).click();
+  await navigate(page, /^Saved views/);
   await page.getByRole('button', { name: 'Remove A better perspective', exact: true }).click();
   await page.getByRole('button', { name: 'Keep perspective', exact: true }).click();
   await expect(page.locator('.saved-card')).toHaveCount(1);
@@ -228,11 +235,11 @@ test('keeps every page within 320px and 768px layouts', async ({ page }, info) =
     );
     await expect(page.getByRole('button', { name: 'Save view', exact: true })).toBeVisible();
     await page.screenshot({ path: info.outputPath(`explorer-${width}.png`), fullPage: true });
-    await page.getByRole('link', { name: 'The moments', exact: true }).click();
+    await navigate(page, 'The moments');
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
       width,
     );
-    await page.getByRole('link', { name: /^Saved views/ }).click();
+    await navigate(page, /^Saved views/);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
       width,
     );
@@ -247,8 +254,8 @@ test('passes representative accessibility scans in explorer, library, saved view
   await page.getByRole('button', { name: 'Save view', exact: true }).click();
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await page.keyboard.press('Escape');
-  await page.getByRole('link', { name: 'The moments', exact: true }).click();
+  await navigate(page, 'The moments');
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-  await page.getByRole('link', { name: /^Saved views/ }).click();
+  await navigate(page, /^Saved views/);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 });

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Check, X } from 'lucide-react';
 import { getMoment, type ViewState } from './domain/match';
 import { Replay } from './domain/replay';
@@ -8,10 +8,19 @@ import { useViews } from './storage/useViews';
 import Explorer from './pages/Explorer';
 import Moments from './pages/Moments';
 import Saved from './pages/Saved';
-import Mark from './ui/Mark';
+import { SiteFooter, SiteHeader } from './ui/SiteChrome';
+import Home from './pages/Home';
+import { Article, Journal } from './pages/Journal';
+import { GuidePage, Playbook } from './pages/Playbook';
+import About from './pages/About';
+import { guides, stories } from './content/editorial';
 
 export default function App() {
   const location = useLocation();
+  const isExplorer =
+    location.pathname === '/explorer' ||
+    (location.pathname === '/' && new URLSearchParams(location.search).has('moment'));
+  const isWorld = !isExplorer && !['/moments', '/saved'].includes(location.pathname);
   const [view, setView] = useState<ViewState>(() => decodeView(location.search).view);
   const [replay] = useState(() => new Replay());
   const collection = useViews();
@@ -23,7 +32,7 @@ export default function App() {
     timer.current = setTimeout(() => setNotice(''), 6500);
   }, []);
   useEffect(() => {
-    if (location.pathname !== '/') {
+    if (!isExplorer) {
       replay.pause();
       return;
     }
@@ -32,7 +41,7 @@ export default function App() {
     setView(decoded.view);
     replay.configure(getMoment(decoded.view.momentId).durationMs, decoded.view.timeMs);
     if (decoded.warning) notify(decoded.warning);
-  }, [location.pathname, location.search, replay, notify]);
+  }, [isExplorer, location.pathname, location.search, replay, notify]);
   useEffect(() => {
     const hidden = () => {
       if (document.hidden) replay.pause();
@@ -45,12 +54,34 @@ export default function App() {
     };
   }, [replay]);
   useEffect(() => {
-    document.title = `${location.pathname === '/moments' ? 'The moments' : location.pathname === '/saved' ? 'Saved views' : 'A different perspective'} — Rafarena`;
+    const title =
+      stories.find((story) => location.pathname === `/journal/${story.slug}`)?.title ??
+      guides.find((guide) => location.pathname === `/playbook/${guide.slug}`)?.title ??
+      (
+        {
+          '/journal': 'The journal',
+          '/playbook': 'The playbook',
+          '/moments': 'The moments',
+          '/saved': 'Saved views',
+          '/about': 'Our perspective',
+        } as Record<string, string>
+      )[location.pathname] ??
+      (isExplorer ? 'The replay room' : 'Game on. Eyes open.');
+    document.title = `${title} — Rafarena`;
     document.getElementById('main')?.focus({ preventScroll: true });
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [location.pathname]);
+  }, [location.pathname, isExplorer]);
+  const explorer = (
+    <Explorer
+      view={view}
+      setView={setView}
+      replay={replay}
+      save={collection.save}
+      notify={notify}
+    />
+  );
   return (
-    <div className="app">
+    <div className={`app ${isWorld ? 'app-world' : 'app-studio'}`}>
       <a
         className="skip-link"
         href="#main"
@@ -59,32 +90,9 @@ export default function App() {
           document.getElementById('main')?.focus();
         }}
       >
-        Skip to the replay room
+        Skip to content
       </a>
-      <header className="site-header">
-        <Link className="brand" to="/" aria-label="Rafarena home">
-          <Mark />
-          <span>
-            rafarena<span className="brand-period">·</span>
-          </span>
-        </Link>
-        <nav aria-label="Main navigation">
-          <NavLink to="/" end>
-            Match explorer
-          </NavLink>
-          <NavLink to="/moments">The moments</NavLink>
-          <NavLink to="/saved">
-            Saved views
-            <span className="nav-count">{collection.views.length.toString().padStart(2, '0')}</span>
-          </NavLink>
-        </nav>
-        <span className="header-signoff">
-          A DIFFERENT
-          <br />
-          PERSPECTIVE.
-          <ArrowUpRight size={19} />
-        </span>
-      </header>
+      <SiteHeader count={collection.views.length} />
       <main id="main" tabIndex={-1} className="main-container">
         {collection.error && (
           <div className="storage-alert" role="alert">
@@ -104,18 +112,13 @@ export default function App() {
           </div>
         )}
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Explorer
-                view={view}
-                setView={setView}
-                replay={replay}
-                save={collection.save}
-                notify={notify}
-              />
-            }
-          />
+          <Route path="/" element={isExplorer ? explorer : <Home notify={notify} />} />
+          <Route path="/explorer" element={explorer} />
+          <Route path="/journal" element={<Journal />} />
+          <Route path="/journal/:slug" element={<Article />} />
+          <Route path="/playbook" element={<Playbook />} />
+          <Route path="/playbook/:slug" element={<GuidePage />} />
+          <Route path="/about" element={<About />} />
           <Route path="/moments" element={<Moments />} />
           <Route path="/saved" element={<Saved {...collection} notify={notify} />} />
           <Route
@@ -126,7 +129,7 @@ export default function App() {
                 <h1>This view has moved.</h1>
                 <p>The pitch is always a good place to start.</p>
                 <Link to="/" className="button primary">
-                  Back to the match
+                  Back to Rafarena
                   <ArrowUpRight size={17} />
                 </Link>
               </section>
@@ -134,21 +137,7 @@ export default function App() {
           />
         </Routes>
       </main>
-      <footer className="site-footer">
-        <Link className="footer-brand" to="/">
-          <Mark />
-          <span>THE GAME LOOKS DIFFERENT FROM HERE.</span>
-        </Link>
-        <p>
-          Independent portfolio study by{' '}
-          <a href="https://github.com/RafayelKaramyan" target="_blank" rel="noreferrer">
-            Rafayel Karamyan
-            <ArrowUpRight size={12} />
-          </a>
-          <span>Fictional teams. Authored movements. An original perspective.</span>
-        </p>
-        <span className="footer-year">© 2026 / RAFARENA</span>
-      </footer>
+      <SiteFooter />
       {notice && (
         <div className="toast" role="status">
           <Check size={17} />
